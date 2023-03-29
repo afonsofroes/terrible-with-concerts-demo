@@ -53,12 +53,10 @@ def bandsintown_request(artist_name, min_date, city='Lisboa'):
 
     print('Getting bandsintown info...')
 
-    api_key = 'cfc7fb20ddfa769f9def3f4dc02bc45d'
-
     params = {'date':'upcoming'}
 
     url = 'https://rest.bandsintown.com/artists/'
-    response = requests.get(f'{url}{artist_name}/events?app_id={api_key}', params=params).json()
+    response = requests.get(f'{url}{artist_name}/events?app_id={BANDSINTOWN_KEY}', params=params).json()
 
     gig_list = []
     try:
@@ -91,8 +89,8 @@ def bandsintown_request(artist_name, min_date, city='Lisboa'):
 def get_track_ids_by_artist(artist_name):
     # Extract relevant information from response
     tracks = []
-    sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id="a75aa488d7644840928f3125bc0e9258",
-                                               client_secret="6d686dd1f94746b9bc08a4d2a09985fd",
+    sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id=SPOTIFY_CLIENT_ID,
+                                               client_secret=SPOTIFY_CLIENT_SECRET,
                                                ))
     data = sp.search(q=f"{artist_name}", type="track", limit=20)
     for item in data["tracks"]["items"]:
@@ -105,8 +103,8 @@ def get_track_ids_by_artist(artist_name):
     return pd.DataFrame(tracks)
 
 def get_audio_features(tracks):
-    sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id="a75aa488d7644840928f3125bc0e9258",
-                                               client_secret="6d686dd1f94746b9bc08a4d2a09985fd",
+    sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id=SPOTIFY_CLIENT_ID,
+                                               client_secret=SPOTIFY_CLIENT_SECRET,
                                                ))
     data = sp.audio_features(tracks["id"])
     return pd.merge(tracks,pd.DataFrame(data),on="id").drop(columns=["type","uri","track_href","analysis_url"])
