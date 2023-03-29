@@ -6,6 +6,12 @@ from modules.final_processing import final_processing
 from params import *
 import pandas as pd
 
+'''
+This module was used to test the whole program locally. Changes were eventually
+made to the main.py file to make it work on the cloud, and to make code block
+more condensed.
+'''
+
 def find_gig(artist_name,
              song_name,
              city='Lisboa',
