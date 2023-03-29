@@ -1,9 +1,10 @@
 import os
 from pathlib import Path
 
-SPOTIFY_KEY = os.environ.get('SPOTIFY_KEY')
 ZYLALAB_KEY = os.environ.get('ZYLALAB_KEY')
 BANDSINTOWN_KEY = os.environ.get('BANDSINTOWN_KEY')
+SPOTIFY_CLIENT_ID=os.environ.get("SPOTIFY_CLIENT_ID")
+SPOTIFY_CLIENT_SECRET=os.environ.get("SPOTIFY_CLIENT_SECRET")
 
 GET_SPOTIFY_DTYPES = {'id' : 'str',
                         'name' : 'str',
@@ -37,7 +38,5 @@ MODEL_PATH = Path(__file__).parent.resolve().joinpath("pca.pkl")
 BUCKET_NAME = os.environ.get("BUCKET_NAME")
 BQ_DATASET = os.environ.get("BQ_DATASET")
 GCP_PROJECT=os.environ.get("GCP_PROJECT")
-SPOTIFY_CLIENT_ID=os.environ.get("SPOTIFY_CLIENT_ID")
-SPOTIFY_CLIENT_SECRET=os.environ.get("SPOTIFY_CLIENT_SECRET")
 
 PROJECT_STATE=os.environ.get("PROJECT_STATE")
