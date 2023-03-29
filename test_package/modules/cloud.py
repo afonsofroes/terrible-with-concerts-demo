@@ -34,7 +34,6 @@ def get_data(gcp_project:str,
     return df
 
 def get_model(cache_path:Path):
-
     if cache_path.is_file():
         print(Fore.BLUE + "\nLoading the model..." + Style.RESET_ALL)
         pca = pickle.load(open(cache_path,'rb'))

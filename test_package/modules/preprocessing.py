@@ -2,6 +2,10 @@ from sklearn.compose import make_column_transformer
 from sklearn.preprocessing import RobustScaler
 import pandas as pd
 
+'''
+This is an adaptation of Pedro's original preprocessing pipeline.
+'''
+
 def preprocess_data(data):
     def preproc_pipeline():
         features_num = [

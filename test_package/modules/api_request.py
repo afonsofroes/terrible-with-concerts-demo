@@ -87,7 +87,6 @@ def bandsintown_request(artist_name, min_date, city='Lisboa'):
 
 # Spotify API
 def get_track_ids_by_artist(artist_name):
-    # Extract relevant information from response
     tracks = []
     sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id=SPOTIFY_CLIENT_ID,
                                                client_secret=SPOTIFY_CLIENT_SECRET,

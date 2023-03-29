@@ -3,8 +3,12 @@ from colorama import Fore, Style
 from test_package.params import *
 from google.cloud import storage, bigquery
 import pandas as pd
-
 from pathlib import Path
+
+'''
+Everything in this module was done by Pedro. This was based on code in our MLOps
+module at Le Wagpn
+'''
 
 
 def save_model(model) -> None:

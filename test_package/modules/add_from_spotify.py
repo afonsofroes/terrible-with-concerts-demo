@@ -4,6 +4,11 @@ from test_package.modules.engineering import add_artists_clean
 from test_package.modules.registry import load_data_to_bq
 from test_package.params import *
 
+'''
+This module uses the Spotify API to get new songs - both when an unkown song is
+"Shazamed" and when the user wants to update the database.
+'''
+
 def get_new_songs(data, artist_name, song_name=""):
     new_data = get_spotify_df(f"{artist_name} - {song_name}")
     for i, row in new_data.iterrows():

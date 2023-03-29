@@ -2,6 +2,12 @@ import pandas as pd
 import re
 from test_package.modules.api_request import bandsintown_request
 
+'''
+This module was made to condense a big block in main.py. It takes all sorts of
+parameters generated throughout the different blocks, and returns a list of
+dictionaries, ready to be use din the front end.
+'''
+
 def final_processing(matched_df, nn_distance_df, gigs_dict, min_date, city):
     final_df = matched_df.join(nn_distance_df) # set up df containing the matched songs and the distance to the nn points
     final_df = final_df.rename(columns={0:'nn_distance'})

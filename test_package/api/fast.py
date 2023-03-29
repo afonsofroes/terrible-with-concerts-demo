@@ -3,6 +3,11 @@ from test_package.main import main
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+'''
+This was done by Pedro, I just added the main function to the API.
+'''
+
+
 app = FastAPI()
 
 app.add_middleware(
