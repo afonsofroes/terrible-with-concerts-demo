@@ -1,6 +1,6 @@
 from sklearn.neighbors import NearestNeighbors
 from test_package.modules.preprocessing import preprocess_numerical
-from test_package.modules.PCA import pca
+from test_package.modules.pca import pca
 
 def fit_nn(data):
 
