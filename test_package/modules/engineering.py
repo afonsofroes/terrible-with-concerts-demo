@@ -4,7 +4,7 @@ from test_package.modules.api_request import gather_gigs
 def add_artists_clean(data: pd.DataFrame):
     assert 'artists' in data.columns, "data frame doesnt have artists column"
 
-    data['artists_clean'] = data['artists'].str.strip('[]').str.strip("'")
+    data['artists_clean'] = data['artists'].str.strip('[]').str.strip("'") # could use eval() instead
     data['artists_clean'] = data['artists_clean'].str.split("', '")
     return data
 
